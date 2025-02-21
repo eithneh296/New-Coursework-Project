@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happiness Index Statistics</title>
+</head>
+<body>
+    <h1>Happiness Index Statistics</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Column Name</th>
+                <th>Mean</th>
+                <th>Median</th>
+                <th>Mode</th>
+                <th>Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, stats in stats.items() %}
+            <tr>
+                <td>{{ col }}</td>
+                <td>{{ stats['Mean'] }}</td>
+                <td>{{ stats['Median'] }}</td>
+                <td>{{ stats['Mode'] }}</td>
+                <td>{{ stats['Range'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
