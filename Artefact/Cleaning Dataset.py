@@ -17,6 +17,13 @@ def contains_invalid_characters(row):
             return True
     return False
 
+# Removing 'Overall rank' column
+df = df.drop('Overall rank', axis=1)
+
+# Dropping rows with missing data
+df = df.dropna()
+
 # Save Results
 df.to_csv(output_file, index=False)
 print("Filtered and sorted data saved successfully.")
+ub
