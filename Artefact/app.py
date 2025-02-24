@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import io
 from flask import Flask, render_template, Response
 
@@ -17,7 +16,7 @@ except FileNotFoundError:
 non_numeric_columns = ['Country or region']
 
 @app.route('/')
-def home():
+def index():
     print("Home route function started!")
 
     # If data file is missing, return an error page
@@ -43,21 +42,6 @@ def home():
 
     print("Finished processing. Rendering template...")
     return render_template('index.html', stats=stats_archive)
-
-# New route to generate and serve the plot
-@app.route('/plot.png')
-def plot():
-    # Create a simple plot
-    plt.figure(figsize=(6, 4))
-    plt.plot([1, 2, 3, 4])
-    plt.ylabel('Some Numbers')
-    plt.title('Sample Plot')
-
-    # Save plot to a BytesIO object
-    img = io.BytesIO()
-    plt.savefig(img, format='png')
-    img.seek(0)
-    plt.close()
 
     return Response(img.getvalue(), mimetype='image/png')
 

@@ -1,0 +1,32 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav {
+    background-color: #3a1313;
+    display: flex; /* Make the list horizontal */
+    overflow: hidden;
+    justify-content: center; /* Center the list items */
+    align-items: center; /* Center items vertically */
+    padding: 0;
+  }
+  
+  .nav li {
+    margin: 0 15px; /* Space between each link */
+  }
+  
+  .nav a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text */
+    font-size: 18px; /* Font size */
+    padding: 10px 15px; /* Add padding around text */
+    display: block; /* Make the anchor tag block-level for padding */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover effect for links */
+  .nav a:hover {
+    background-color: #555; /* Darker shade on hover */
+  }
+
