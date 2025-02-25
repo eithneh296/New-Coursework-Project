@@ -1,32 +1,34 @@
 body, ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav {
-    background-color: #3a1313;
-    display: flex; /* Make the list horizontal */
-    overflow: hidden;
-    justify-content: center; /* Center the list items */
-    align-items: center; /* Center items vertically */
-    padding: 0;
-  }
-  
-  .nav li {
-    margin: 0 15px; /* Space between each link */
-  }
-  
-  .nav a {
-    text-decoration: none; /* Remove underline */
-    color: white; /* White text */
-    font-size: 18px; /* Font size */
-    padding: 10px 15px; /* Add padding around text */
-    display: block; /* Make the anchor tag block-level for padding */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-  }
-  
-  /* Hover effect for links */
-  .nav a:hover {
-    background-color: #555; /* Darker shade on hover */
-  }
+  margin-top: 0;
+  padding: 0;
+}
+
+.nav {
+  background-color: #3a1313;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav li {
+  margin: 0 15px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 15px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #555;
+}
 

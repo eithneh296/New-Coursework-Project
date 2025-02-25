@@ -45,6 +45,11 @@ def index():
 
     return Response(img.getvalue(), mimetype='image/png')
 
+@app.route('/statistics_insights')
+def statinsights():
+    print("work it")
+    return render_template('statistics_insights.html')
+
 # Run Flask only when the script is executed directly
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
