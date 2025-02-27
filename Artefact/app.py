@@ -45,10 +45,38 @@ def index():
 
     return Response(img.getvalue(), mimetype='image/png')
 
-@app.route('/statistics_insights')
-def statinsights():
+@app.route('/statistics_page')
+def statistics_page():
     print("work it")
-    return render_template('statistics_insights.html')
+
+    # If data file is missing, return an error page
+    if df is None:
+        print("Dataframe is None!")
+        return "Error: Data file is missing!", 500
+
+    print("Processing statistics")
+    stats_archive = {}
+
+    # Process numeric columns
+    for col in df.columns:
+        if col not in non_numeric_columns:
+            stats_data = pd.to_numeric(df[col], errors='coerce')
+
+            if stats_data.notna().any():
+                stats_archive[col] = {
+                    'Mean': stats_data.mean(),
+                    'Median': stats_data.median(),
+                    'Mode': stats_data.mode().iloc[0] if not stats_data.mode().empty else np.nan,
+                    'Range': stats_data.max() - stats_data.min()
+                }
+
+    return render_template('statistics_page.html', stats=stats_archive) 
+
+@app.route('/user_poll')
+def userpoll():
+    print("work it")
+
+    return render_template('user_poll')
 
 # Run Flask only when the script is executed directly
 if __name__ == "__main__":
